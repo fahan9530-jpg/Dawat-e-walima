@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walima Reception Invitation - Farhan & Anam</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Great Vibes for script & Playfair Display / Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0d1b2a;
+      color: #1e293b;
+    }
+    .font-serif-custom {
+      font-family: 'Playfair Display', serif;
+    }
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border-color: #d4af37;
+    }
+    .islamic-pattern {
+      background-color: #0f172a;
+      background-image: radial-gradient(#d4af37 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #0f172a 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+  </style>
+</head>
+<body class="islamic-pattern min-h-screen py-8 px-4 flex flex-col items-center justify-center">
+
+  <!-- Floating Control Bar -->
+  <div class="w-full max-w-md mb-6 flex justify-between items-center bg-slate-900/80 backdrop-blur-md border border-amber-500/30 px-4 py-3 rounded-2xl shadow-xl text-white">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-xs font-medium tracking-wide text-amber-200">Live Invitation Card</span>
+    </div>
+    <div class="flex gap-2">
+      <button onclick="openEditModal()" class="text-xs bg-amber-600 hover:bg-amber-500 text-white font-medium px-3 py-1.5 rounded-xl transition shadow-md flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        Edit Details
+      </button>
+      <button onclick="shareCard()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3 py-1.5 rounded-xl transition shadow-md flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        Share
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Invitation Card -->
+  <div id="invitation-card" class="w-full max-w-md bg-[#111827] border-2 gold-border rounded-3xl shadow-2xl overflow-hidden relative text-amber-50">
+    
+    <!-- Decorative Header Ornament -->
+    <div class="pt-8 pb-4 text-center px-6 relative">
+      <div class="absolute top-3 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+      <p class="text-amber-300 font-serif-custom italic text-sm tracking-widest uppercase mb-1">Bismillah-ir-Rahman-ir-Rahim</p>
+      <p class="text-xs text-amber-200/70 tracking-wider">The pleasure of your company is requested at the</p>
+      <h1 class="text-3xl font-serif-custom font-bold gold-gradient-text mt-2 tracking-wide uppercase">Walima Reception</h1>
+      <div class="mt-3 w-16 h-1 bg-amber-400/50 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Couple Section -->
+    <div class="px-6 py-6 text-center space-y-6">
+      
+      <!-- Groom -->
+      <div class="bg-slate-900/60 border border-amber-500/20 p-4 rounded-2xl shadow-inner">
+        <p class="text-xs uppercase tracking-widest text-amber-400/80 mb-1 font-semibold">Groom</p>
+        <h2 id="display-groom" class="text-3xl font-script font-bold gold-gradient-text tracking-wide">Farhan Ahmad</h2>
+        <p id="display-groom-father" class="text-xs text-amber-200/90 mt-0.5">Son of Jalal Ahmad</p>
+        <p id="display-groom-address" class="text-xs text-slate-400 mt-2 leading-relaxed px-2">3rd Floor, Khan Galaxy, New Basti, Topsia 47/1A Kolkata 700046</p>
+      </div>
+
+      <!-- & Symbol -->
+      <div class="text-amber-400 font-script text-3xl font-bold -my-2">~ & ~</div>
+
+      <!-- Bride -->
+      <div class="bg-slate-900/60 border border-amber-500/20 p-4 rounded-2xl shadow-inner">
+        <p class="text-xs uppercase tracking-widest text-amber-400/80 mb-1 font-semibold">Bride</p>
+        <h2 id="display-bride" class="text-3xl font-script font-bold gold-gradient-text tracking-wide">Anam Rizwi</h2>
+        <p id="display-bride-father" class="text-xs text-amber-200/90 mt-0.5">Daughter of Md Hasnain Rizwi</p>
+        <p id="display-bride-address" class="text-xs text-slate-400 mt-2 leading-relaxed px-2">Jaan Medico Hall, Madarsa Road, Aurangabad (Bihar) 824101</p>
+      </div>
+
+    </div>
+
+    <!-- Schedule Section (4 Events) -->
+    <div class="px-6 py-4 bg-slate-900/40 border-t border-b border-amber-500/20">
+      <h3 class="text-xs font-bold uppercase tracking-widest text-amber-300 text-center mb-4">Event Schedule</h3>
+      
+      <div class="space-y-3">
+        <!-- Quran Khani -->
+        <div class="flex items-start gap-3 bg-slate-900/80 p-3 rounded-xl border border-amber-500/10">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 font-bold text-xs">01</div>
+          <div class="flex-1">
+            <h4 class="text-sm font-bold text-amber-100">Quran Khani</h4>
+            <p id="display-quran" class="text-xs text-amber-300/80 mt-0.5">Wednesday, 27th January 2027 • 08:00 AM</p>
+          </div>
+        </div>
+
+        <!-- Haldi Ceremony -->
+        <div class="flex items-start gap-3 bg-slate-900/80 p-3 rounded-xl border border-amber-500/10">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 font-bold text-xs">02</div>
+          <div class="flex-1">
+            <h4 class="text-sm font-bold text-amber-100">Haldi Ceremony</h4>
+            <p id="display-haldi" class="text-xs text-amber-300/80 mt-0.5">Wednesday, 27th January 2027 • 07:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Milad Sharif -->
+        <div class="flex items-start gap-3 bg-slate-900/80 p-3 rounded-xl border border-amber-500/10">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 font-bold text-xs">03</div>
+          <div class="flex-1">
+            <h4 class="text-sm font-bold text-amber-100">Milad Sharif</h4>
+            <p id="display-milad" class="text-xs text-amber-300/80 mt-0.5">Wednesday, 27th January 2027 • 10:30 PM</p>
+          </div>
+        </div>
+
+        <!-- Walima Reception -->
+        <div class="flex items-start gap-3 bg-amber-950/40 p-3 rounded-xl border border-amber-500/30 shadow-md">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-300 shrink-0 font-bold text-xs">04</div>
+          <div class="flex-1">
+            <h4 class="text-sm font-bold text-amber-200">Walima Reception</h4>
+            <p id="display-walima" class="text-xs text-amber-300 mt-0.5 font-medium">Monday, 1st February 2027 • 08:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venue Section -->
+    <div class="px-6 py-6 text-center">
+      <h3 class="text-xs font-bold uppercase tracking-widest text-amber-300 mb-2">Venue Location</h3>
+      <p id="display-venue-name" class="text-base font-serif-custom font-bold text-white">Hotel Royal Garden</p>
+      <p id="display-venue-address" class="text-xs text-slate-400 mt-1 px-4 leading-relaxed">Park St, Mullick Bazar, Crossing, Kolkata, West Bengal 700017</p>
+      
+      <a id="display-maps-link" href="https://www.google.com/maps/dir//Hotel+Royal+Garden,+Park+St,+Mullick+Bazar,+Crossing,+Kolkata,+West+Bengal+700017/@22.5434199,88.3920375,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a0277df31208937:0xafc03fce177696b4!2m2!1d88.363536!2d22.5453567?entry=ttu" target="_blank" class="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-slate-950 font-bold text-xs px-5 py-2.5 rounded-xl shadow-lg transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Open in Google Maps
+      </a>
+    </div>
+
+    <!-- Attendance Section (Strictly With Family) -->
+    <div class="px-6 py-5 bg-slate-900/60 border-t border-amber-500/20 text-center">
+      <h3 class="text-xs font-bold uppercase tracking-widest text-amber-300 mb-3">Invitation Type</h3>
+      <div class="inline-flex items-center justify-center bg-slate-950/80 border border-amber-500/40 px-6 py-2.5 rounded-2xl shadow-inner">
+        <span id="display-attendance" class="text-sm font-semibold tracking-wide gold-gradient-text">With Family</span>
+      </div>
+    </div>
+
+    <!-- Footer Compliments -->
+    <div class="py-5 px-6 bg-slate-950 text-center border-t border-amber-500/20">
+      <p class="text-xs text-amber-300/80 font-serif-custom italic">With Best Compliments From:</p>
+      <p class="text-xs font-bold text-white mt-1">Mr. Jalal Ahmad (S/O - Jamal Ahmad)</p>
+    </div>
+
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="edit-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-slate-900 border border-amber-500/30 w-full max-w-lg rounded-3xl p-6 shadow-2xl text-white my-8">
+      <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
+        <h3 class="font-serif-custom font-bold text-lg text-amber-300">Edit Invitation Details</h3>
+        <button onclick="closeEditModal()" class="text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+      
+      <form id="edit-form" onsubmit="saveDetails(event)" class="space-y-4 max-h-[70vh] overflow-y-auto pr-2">
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Groom Name</label>
+          <input type="text" id="input-groom" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Groom Father Name</label>
+          <input type="text" id="input-groom-father" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Groom Address</label>
+          <textarea id="input-groom-address" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required></textarea>
+        </div>
+        
+        <hr class="border-slate-800 my-2">
+
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Bride Name</label>
+          <input type="text" id="input-bride" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Bride Father Name</label>
+          <input type="text" id="input-bride-father" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Bride Address</label>
+          <textarea id="input-bride-address" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required></textarea>
+        </div>
+
+        <hr class="border-slate-800 my-2">
+
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Quran Khani Date & Time</label>
+          <input type="text" id="input-quran" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Haldi Ceremony Date & Time</label>
+          <input type="text" id="input-haldi" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Milad Sharif Date & Time</label>
+          <input type="text" id="input-milad" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Walima Reception Date & Time</label>
+          <input type="text" id="input-walima" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+
+        <hr class="border-slate-800 my-2">
+
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Venue Name</label>
+          <input type="text" id="input-venue-name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Venue Address</label>
+          <textarea id="input-venue-address" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required></textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Google Maps URL</label>
+          <input type="url" id="input-maps-link" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-amber-300 mb-1">Invitation Type</label>
+          <input type="text" id="input-attendance" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" required>
+        </div>
+
+        <div class="flex gap-3 pt-3">
+          <button type="button" onclick="closeEditModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-medium py-2.5 rounded-xl text-xs transition">Cancel</button>
+          <button type="submit" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white font-medium py-2.5 rounded-xl text-xs transition shadow-lg">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openEditModal() {
+      document.getElementById('input-groom').value = document.getElementById('display-groom').innerText;
+      document.getElementById('input-groom-father').value = document.getElementById('display-groom-father').innerText.replace('Son of ', '');
+      document.getElementById('input-groom-address').value = document.getElementById('display-groom-address').innerText;
+      
+      document.getElementById('input-bride').value = document.getElementById('display-bride').innerText;
+      document.getElementById('input-bride-father').value = document.getElementById('display-bride-father').innerText.replace('Daughter of ', '');
+      document.getElementById('input-bride-address').value = document.getElementById('display-bride-address').innerText;
+      
+      document.getElementById('input-quran').value = document.getElementById('display-quran').innerText;
+      document.getElementById('input-haldi').value = document.getElementById('display-haldi').innerText;
+      document.getElementById('input-milad').value = document.getElementById('display-milad').innerText;
+      document.getElementById('input-walima').value = document.getElementById('display-walima').innerText;
+      
+      document.getElementById('input-venue-name').value = document.getElementById('display-venue-name').innerText;
+      document.getElementById('input-venue-address').value = document.getElementById('display-venue-address').innerText;
+      document.getElementById('input-maps-link').value = document.getElementById('display-maps-link').href;
+      document.getElementById('input-attendance').value = document.getElementById('display-attendance').innerText;
+
+      document.getElementById('edit-modal').classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+      document.getElementById('edit-modal').classList.add('hidden');
+    }
+
+    function saveDetails(event) {
+      event.preventDefault();
+      
+      document.getElementById('display-groom').innerText = document.getElementById('input-groom').value;
+      document.getElementById('display-groom-father').innerText = "Son of " + document.getElementById('input-groom-father').value;
+      document.getElementById('display-groom-address').innerText = document.getElementById('input-groom-address').value;
+      
+      document.getElementById('display-bride').innerText = document.getElementById('input-bride').value;
+      document.getElementById('display-bride-father').innerText = "Daughter of " + document.getElementById('input-bride-father').value;
+      document.getElementById('display-bride-address').innerText = document.getElementById('input-bride-address').value;
+      
+      document.getElementById('display-quran').innerText = document.getElementById('input-quran').value;
+      document.getElementById('display-haldi').innerText = document.getElementById('input-haldi').value;
+      document.getElementById('display-milad').innerText = document.getElementById('input-milad').value;
+      document.getElementById('display-walima').innerText = document.getElementById('input-walima').value;
+      
+      document.getElementById('display-venue-name').innerText = document.getElementById('input-venue-name').value;
+      document.getElementById('display-venue-address').innerText = document.getElementById('input-venue-address').value;
+      document.getElementById('display-maps-link').href = document.getElementById('input-maps-link').value;
+      document.getElementById('display-attendance').innerText = document.getElementById('input-attendance').value;
+
+      closeEditModal();
+    }
+
+    function shareCard() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Walima Reception Invitation',
+          text: 'You are cordially invited to the Walima Reception of Farhan Ahmad & Anam Rizwi!',
+          url: window.location.href
+        }).catch(console.error);
+      } else {
+        alert("Copy this page code or host it on Netlify to share easily via WhatsApp!");
+      }
+    }
+  </script>
+</body>
+</html>
